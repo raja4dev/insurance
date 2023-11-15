@@ -1,7 +1,7 @@
 node{
         stage('git checkout'){
             echo "checking out the code from github"
-            git 'https://github.com/raja4dev/insurance.git'
+            git branch: 'main', credentialsId: 'your-git-credentials', url: 'https://github.com/raja4dev/insurance.git'
         }
         
         stage('maven build'){
