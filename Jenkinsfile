@@ -5,7 +5,7 @@ node{
         }
         
         stage('maven build'){
-            sh 'mvn clean compile'
+            sh 'mvn clean install'
         }
         
         stage('build docker image'){
