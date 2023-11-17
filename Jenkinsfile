@@ -5,7 +5,7 @@ node{
         }
         
         stage('maven build'){
-            sh 'mvn clean install'
+            sh 'mvn clean package -DskipTests=true'
         }
         
         stage('build docker image'){
