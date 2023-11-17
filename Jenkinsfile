@@ -9,7 +9,7 @@ node{
         }
         
         stage('build docker image'){
-            sh 'sudo -S docker build -t mrajasekhar13/insure-me:1.0 .'
+            sh 'docker build -t mrajasekhar13/insure-me:1.0 .'
         }
         
         stage('push docker image to docker hub registry')
@@ -17,8 +17,8 @@ node{
             echo 'pushing images to registry'
             
             withCredentials([string(credentialsId: 'docker-hub-password', variable: 'dockerHubPassword')]) {
-                sh "sudo -S docker login -u mrajasekhar13 -p ${dockerHubPassword}"
-                sh 'sudo -S docker push mrajasekhar13/insure-me:1.0'
+                sh "docker login -u mrajasekhar13 -p ${dockerHubPassword}"
+                sh 'docker push mrajasekhar13/insure-me:1.0'
             }
         }
         
